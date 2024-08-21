@@ -1,3 +1,5 @@
+'use client'
+
 import { VercelResponse } from "@vercel/node";
 import { addDoc, setDoc, doc, collection } from "firebase/firestore";
 import { firestore } from "@/firebase";
