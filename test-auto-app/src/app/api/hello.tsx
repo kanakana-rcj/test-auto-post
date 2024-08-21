@@ -1,6 +1,7 @@
-import { VercelResponse } from "@vercel/node";
-import { addDoc, setDoc, doc, collection } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { firestore } from "@/firebase";
+
+export const runtime = 'nodejs';
 
 export default async function () {
   try {
@@ -11,5 +12,3 @@ export default async function () {
     console.log(error);
   }
 }
-
-export const runtime = 'nodejs';
