@@ -16,6 +16,7 @@ export default function RequestForm() {
       });      
       setIsLoading(false);
       window.alert("送信しました");
+      console.log("succeeded not auto");
     } catch (error) {
       console.log(error);
     }
