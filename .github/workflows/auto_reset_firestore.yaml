@@ -8,6 +8,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: add mask
+        env: 
+          SECRET_FILE: ${{ secrets.SECRET_FILE }}
+          type: ${{ secrets.TYPE }}
+          project_id: ${{ secrets.PROJECT_ID }}
+          private_key_id: ${{ secrets.PRIVATE_KEY_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+          client_email: ${{ secrets.CLIENT_EMAIL }}
+          client_id: ${{ secrets.CLIENT_ID }}
+          auth_uri: ${{ secrets.AUTH_URL }}
+          token_uri: ${{ secrets.TOKEN_URL }}
+          auth_provider_x509_cert_url: ${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}
+          client_x509_cert_url: ${{ secrets.CLIENT_X509_CERT_URL }}
+          universe_domain: ${{ secrets.UNIVERSE_DOMAIN }}
+        run: |
+          echo "::add-mask::$type"
+          echo "::add-mask::$SECRET_FILE"
+          echo "::add-mask::$type"
+          echo "::add-mask::$project_id"
+          echo "::add-mask::$private_key_id"
+          echo "::add-mask::$private_key"
+          echo "::add-mask::$client_email"
+          echo "::add-mask::$client_id"
+          echo "::add-mask::$auth_uri"
+          echo "::add-mask::$token_uri"
+          echo "::add-mask::$auth_provider_x509_cert_url"
+          echo "::add-mask::$client_x509_cert_url"
+          echo "::add-mask::$universe_domain"
+          echo $SECRET_FILE | base64 --decode > secret_file.json
   
       - name: Setup Python
         uses: actions/setup-python@v2
