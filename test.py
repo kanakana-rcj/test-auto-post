@@ -4,7 +4,7 @@ from firebase_admin import firestore
 
 ##NOTE:.json pushするな
 ##NOTE: GITHUB secretsに秘密鍵入れてactionsで.json作成する
-cred = credentials.Certificate("./test-auto-post-3bbdd-firebase-adminsdk-pxgtc-09c26b9f59.json")
+cred = credentials.Certificate("./secret_file.json")
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
