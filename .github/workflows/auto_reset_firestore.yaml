@@ -35,5 +35,8 @@ jobs:
           client_x509_cert_url: ${{ secrets.CLIENT_X509_CERT_URL }},
           universe_domain: ${{ secrets.UNIVERSE_DOMAIN }}
 
+      - name: test
+        run: cat ./secret_file.json
+
       - name: Run Python
         run: python test.py #名前変更
