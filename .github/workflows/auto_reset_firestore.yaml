@@ -2,7 +2,7 @@ name: Auto Reset Firestore
 
 on:
   schedule:
-    - cron: '*/1 * * * *' #毎分
+    - cron: '55 * * * *' #毎時
 
 jobs:
   Auto-Reset-Firestore:
