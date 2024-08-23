@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  Deploy-Production:
+  Auto Reset Firestore:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,17 +22,18 @@ jobs:
         uses: microsoft/variable-substitution@v1 
         with:
           files: 'secret_file.json'
-        type: ${{ secrets.TYPE }},
-        project_id: ${{ secrets.PROJECT_ID }},
-        private_key_id: ${{ secrets.PRIVATE_KEY_ID }},
-        private_key: ${{ secrets.PRIVATE_KEY }},
-        client_email: ${{ secrets.CLIENT_EMAIL }},
-        client_id: ${{ secrets.CLIENT_ID }},
-        auth_uri: ${{ secrets.AUTH_URL }},
-        token_uri: ${{ secrets.TOKEN_URL }},
-        auth_provider_x509_cert_url: ${{ secrets.AUTH_PROVIDER_X509_CERT_URL }},
-        client_x509_cert_url: ${{ secrets.CLIENT_X509_CERT_URL }},
-        universe_domain: ${{ secrets.UNIVERSE_DOMAIN }}
+        env: 
+          type: ${{ secrets.TYPE }},
+          project_id: ${{ secrets.PROJECT_ID }},
+          private_key_id: ${{ secrets.PRIVATE_KEY_ID }},
+          private_key: ${{ secrets.PRIVATE_KEY }},
+          client_email: ${{ secrets.CLIENT_EMAIL }},
+          client_id: ${{ secrets.CLIENT_ID }},
+          auth_uri: ${{ secrets.AUTH_URL }},
+          token_uri: ${{ secrets.TOKEN_URL }},
+          auth_provider_x509_cert_url: ${{ secrets.AUTH_PROVIDER_X509_CERT_URL }},
+          client_x509_cert_url: ${{ secrets.CLIENT_X509_CERT_URL }},
+          universe_domain: ${{ secrets.UNIVERSE_DOMAIN }}
 
       - name: Run Python
         run: python test.py #名前変更
