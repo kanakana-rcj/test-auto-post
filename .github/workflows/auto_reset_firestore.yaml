@@ -55,8 +55,11 @@ jobs:
         run: |
           echo $SECRET_FILE | base64 --decode > secret_file.json
 
-      - name: test
+      - name: test  #TODO:本番では消す
         run: cat ./secret_file.json
 
       - name: Run Python
-        run: python test.py #名前変更
+        run: python test.py #TODO:本番では名前変更
+
+      - name: Delete Secret File
+        run: rm secret_file.json
