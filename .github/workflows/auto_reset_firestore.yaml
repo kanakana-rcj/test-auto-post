@@ -6,7 +6,7 @@ on:
 
 jobs:
   Auto-Reset-Firestore:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  #latestから変更
     steps:
       - uses: actions/checkout@v2
 
